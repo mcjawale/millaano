@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}New User - {{ g.company.name }}{% endblock %}
+{% block content %}
+<div class="page-head"><h1>Add User</h1></div>
+<div class="panel"><form method="post" class="form-grid">
+<div class="field"><label>Username</label><input name="username" required></div>
+<div class="field"><label>Full name</label><input name="full_name"></div>
+<div class="field"><label>Email</label><input name="email" type="email"></div>
+<div class="field"><label>Role</label><select name="role"><option value="staff">Staff</option><option value="admin">Admin</option><option value="owner">Owner</option><option value="viewer">Viewer</option></select></div>
+<div class="field"><label>Password</label><input name="password1" type="password" required></div>
+<div class="field"><label>Confirm password</label><input name="password2" type="password" required></div>
+<div class="form-actions"><button class="btn btn-accent">Save</button><a class="btn" href="{{ url_for('users.list', slug=g.company.slug) }}">Cancel</a></div>
+</form></div>
+{% endblock %}

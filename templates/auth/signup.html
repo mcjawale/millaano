@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Sign up - MCJ Sahan Fleet Management System{% endblock %}
+{% block content %}
+<div class="login-screen">
+  <div class="login-wrap">
+    <div class="login-card">
+      <h1>Create your company</h1>
+      <p class="sub">Each company has its own isolated data</p>
+      <form method="post">
+        <div class="field"><label>Company name</label><input name="company" required></div>
+        <div class="field"><label>Your full name</label><input name="full_name" required></div>
+        <div class="field"><label>Username</label><input name="username" required></div>
+        <div class="field"><label>Email</label><input name="email" type="email"></div>
+        <div class="field"><label>Password</label><input name="password1" type="password" required></div>
+        <div class="field"><label>Confirm password</label><input name="password2" type="password" required></div>
+        <button class="btn btn-accent">Create company &amp; continue</button>
+      </form>
+      <p class="hint"><a href="{{ url_for('auth.login') }}">Back to login</a></p>
+    </div>
+  </div>
+</div>
+{% endblock %}

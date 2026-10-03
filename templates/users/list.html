@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Users - {{ g.company.name }}{% endblock %}
+{% block content %}
+<div class="page-head"><h1>Users</h1><p class="page-sub">Manage access for {{ g.company.name }}</p></div>
+<div class="quick-actions"><a class="btn btn-accent" href="{{ url_for('users.new', slug=g.company.slug) }}">+ Add User</a></div>
+<div class="panel"><div class="table-wrap"><table><thead><tr><th>Username</th><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Created</th></tr></thead><tbody>{% for r in rows %}<tr><td>{{ r.username }}</td><td>{{ r.full_name or '-' }}</td><td>{{ r.email or '-' }}</td><td>{{ r.role }}</td><td>{{ 'active' if r.is_active else 'inactive' }}</td><td>{{ r.created_at }}</td></tr>{% else %}<tr><td colspan="6" class="empty">No users</td></tr>{% endfor %}</tbody></table></div></div>
+{% endblock %}
